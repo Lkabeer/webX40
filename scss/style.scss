@@ -12,6 +12,12 @@ $roundness: 20px 0 20px 0;
 
 $colorsX: red, black, blue;
 
+$color-btns: (
+    primary: $colorX4,
+    secondary: $colorX1,
+    test: $colorX3
+);
+
 @mixin transitionX($seconds: 0.5s) {
     -webkit-transition: all $seconds ease-in-out 0s;
     transition: all $seconds ease-in-out 0s;
@@ -89,14 +95,14 @@ h1 {
     @extend .btn;
     // background-color: $colorX4;
 
-    @include complementX($colorX4)
+    @include complementX($colorX4);
 }
 
 .btn-secondary {
     @extend .btn;
     // background-color: $colorX1;
 
-    @include complementX($colorX1)
+    @include complementX($colorX1);
 }
 
 .btn-test {
@@ -136,3 +142,11 @@ h1 {
         background-color: nth($colorsX, $index);
     }
 }
+
+// @each $keyX, $valueX in $color-btns {
+//     .btn-#{$keyX} {
+//         @extend .btn;
+//         background-color: $valueX;
+//         @include complementX($valueX)
+//     }
+// }
