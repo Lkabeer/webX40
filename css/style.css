@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script|Nanum+Pen+Script");
+* {
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Kaushan Script", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-weight: normal;
+}
+@media (max-width: 768px) {
+  h1 {
+    color: #9e0d0d;
+  }
+}
+
+.btn, .btn-secondary, .btn-primary {
+  padding: 10px;
+  border: none;
+  font: 1em "Kaushan Script", cursive;
+  color: #fff;
+  margin: 10px;
+}
+
+.btn-primary {
+  background-color: dodgerblue;
+}
+.btn-primary:hover {
+  background-color: #ff8d1e;
+}
+
+.btn-secondary {
+  background-color: #9e0d0d;
+}
+.btn-secondary:hover {
+  background-color: #0d9e9e;
+}
+
+.btn-test {
+  border-radius: 20px 0 20px 0;
+}
+.btn-test:hover {
+  background-color: #005db7;
+}
+
+/* preloaderX X-Team */
+.preloaderX {
+  content: "";
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-top: 2px solid coral;
+  border-right: 2px solid transparent;
+  animation: preloaderX 0.7s linear infinite;
+}
+
+@keyframes preloaderX {
+  to {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.loopX button:nth-child(1) {
+  background-color: red;
+}
+
+.loopX button:nth-child(2) {
+  background-color: black;
+}
+
+.loopX button:nth-child(3) {
+  background-color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */

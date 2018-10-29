@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Nanum+Pen+Script');
+
+$fontX1: 'Kaushan Script', cursive;
+$fontX2: 'Nanum Pen Script', cursive;
+
+$colorX1: #9e0d0d;
+$colorX2: #fff;
+$colorX3: #000;
+$colorX4: dodgerblue;
+
+$roundness: 20px 0 20px 0;
+
+$colorsX: red, black, blue;
+
+@mixin transitionX($seconds: 0.5s) {
+    -webkit-transition: all $seconds ease-in-out 0s;
+    transition: all $seconds ease-in-out 0s;
+}
+
+@mixin flexX($directionX: row) {
+    display: flex;
+    flex-direction: $directionX;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin transformX($valueX) {
+    -ms-transform: $valueX;
+    -webkit-transform: $valueX;
+    transform: $valueX;
+}
+
+@mixin complementX($colorX) {
+    background-color: $colorX;
+
+    &:hover {
+        background-color: complement($colorX);
+    }
+}
+
+@mixin breakPointX($widthX) {
+    @media (max-width: $widthX) {
+        @content;
+    }
+}
+
+@mixin breakPointsX($args...) {
+    @if length($args) == 1 {
+        @media (max-width: nth($args, 1)) {
+            @content;
+        }
+    } @else { 
+        @media (min-width: nth($args, 1)) and (max-width: nth($args, 2)) {
+            @content;
+        }
+    }
+}
+
+* {
+   @include transitionX;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: $fontX1;
+
+    @include flexX(column);
+}
+
+h1 {
+    font-weight: normal;
+
+    // @include breakPointX(768px 1024px) {
+    @include breakPointX(768px) {
+        color: $colorX1;
+    }
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    font: 1em $fontX1;
+    color: $colorX2;
+    margin: 10px;
+}
+
+.btn-primary {
+    @extend .btn;
+    // background-color: $colorX4;
+
+    @include complementX($colorX4)
+}
+
+.btn-secondary {
+    @extend .btn;
+    // background-color: $colorX1;
+
+    @include complementX($colorX1)
+}
+
+.btn-test {
+    border-radius: $roundness;
+    // border-radius: nth($roundness, 1);
+
+    &:hover {
+        background-color: darken($colorX4, 20%);
+        // background-color: lighten($colorX4, 20%);
+        // background-color: desaturate($colorX4, 80%);
+        // background-color: saturate($colorX4, 20%);
+        // background-color: adjust-hue($colorX4, 20%);
+        // background-color: rgba($colorX4, .7);
+    }
+}
+
+/* preloaderX X-Team */
+.preloaderX {
+    content: "";
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-top: 2px solid coral;
+    border-right: 2px solid transparent;
+    animation: preloaderX 0.7s linear infinite;
+}
+
+@keyframes preloaderX {
+    to {
+        @include transformX(rotate(360deg));
+    }
+}
+
+@for $index from 1 through length($colorsX) {
+    .loopX button:nth-child(#{$index}) {
+        background-color: nth($colorsX, $index);
+    }
+}
